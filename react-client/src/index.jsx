@@ -46,18 +46,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // $.ajax({
-    //   url: '/',
-    //   method: 'GET',
-    //   success: (data) => {
-    //     this.setState({
-    //       items: data
-    //     })
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
+
+    $.ajax({
+      url: '/friends',
+      method: 'GET',
+      contentType: "application/JSON",
+      success: (data) => {
+        console.log(data);
+        // this.setState({
+        //   items: data
+        // })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
   }
 
   render () {
