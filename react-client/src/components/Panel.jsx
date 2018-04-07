@@ -4,13 +4,19 @@ class Panel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      location: ''
     }
   }
 
-  handleChange(e) {
-    console.log(e.target.value);
-    this.setState({name: e.value});
+  handleNameChange(e) {
+    console.log('Name input: ' + e.target.value);
+    this.setState({name: e.target.value});
+  }
+
+  handleLocationChange(e) {
+    console.log('Location input: ' + e.target.value);
+    this.setState({name: e.target.value});
   }
 
   render() {
@@ -18,8 +24,8 @@ class Panel extends React.Component {
       <div>
         <h4>Friend Finder</h4>
         <div>
-          <input type="text" placeholder="Name" onChange={this.handleChange.bind(this)}/>
-          <input type="text" placeholder="Location" />
+          <input type="text" placeholder="Name" onChange={this.handleNameChange.bind(this)} />
+          <input type="text" placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
           <button>Submit</button>
         </div>
       </div>)
