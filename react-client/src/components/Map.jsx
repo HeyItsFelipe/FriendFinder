@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel';
+
 class Map extends Component {
    render() {
    const GoogleMapExample = withGoogleMap(props => (
@@ -8,7 +10,15 @@ class Map extends Component {
         defaultZoom = { 4 }
       >
 
-      {this.props.friends.map(friend => <Marker key={friend._id} position={{lat: friend.lat, lng: friend.lng }}/>)}
+      {this.props.friends.map(friend =>
+        <MarkerWithLabel key={friend._id}
+          position={{ lat: friend.lat, lng: friend.lng }}
+          labelAnchor={new google.maps.Point(0, 0)}
+          labelStyle={{backgroundColor: "white", fontSize: "12px", padding: "5px"}}
+        >
+        <div>{friend.name}</div>
+        </MarkerWithLabel>
+      )}
 
 
       </GoogleMap>
