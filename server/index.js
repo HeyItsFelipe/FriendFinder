@@ -41,7 +41,6 @@ app.post('/friend', function(req, res) {
       console.log('Success in addFriend...');
     }
   });
-
 });
 
 

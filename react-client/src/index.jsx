@@ -37,10 +37,11 @@ class App extends React.Component {
             console.log('err', err);
           }
         });
-
+            //REFRESHES BROWSER
+            window.location.reload();
 
       } else {
-        console.log("Something got wrong " + status);
+        console.log("Something wrong " + status);
       }
     });
 
