@@ -12,12 +12,20 @@ class App extends React.Component {
     }
   }
 
-  // this.handleClick = this.handleClick.bind(this);
-
   handleClick(name, location) {
     console.log('I have been clicked!');
     console.log('Name: ' + name);
     console.log('Location: ' + location);
+
+    var geocoder =  new google.maps.Geocoder();
+    geocoder.geocode( { 'address': location}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        console.log("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+      } else {
+        console.log("Something got wrong " + status);
+      }
+    });
+
   }
 
   componentDidMount() {
@@ -36,7 +44,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <Panel name="Jo" handleClick={this.handleClick.bind(this)}/>
+      <Panel handleClick={this.handleClick.bind(this)}/>
       <Map />
     </div>)
   }
