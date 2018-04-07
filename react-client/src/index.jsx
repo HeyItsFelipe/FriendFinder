@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <Panel />
+      <Panel name="Jo" />
       <Map />
     </div>)
   }
