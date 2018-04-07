@@ -8,8 +8,8 @@ class Map extends Component {
         defaultZoom = { 4 }
       >
 
-      <Marker position={{lat: 29.76, lng: -95.36}} />
-      <Marker position={{lat: 39.76, lng: -95.36}} />
+      {this.props.friends.map(friend => <Marker key={friend._id} position={{lat: friend.lat, lng: friend.lng }}/>)}
+
 
       </GoogleMap>
    ));
