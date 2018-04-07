@@ -12,7 +12,7 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  name: Number,
+  name: String,
   location: String,
   lat: Number,
   lng: Number
@@ -33,11 +33,23 @@ var selectAll = function(callback) {
 var addFriend = function(data, callback) {
   console.log('Entered addFriend....');
   console.log(data);
-  //TODO: Add to database
-  //TODO: Start db using mongod
-  //TODO: Start db cli using mongo
-  //TODO: Add using save, Item.save
-  callback(null, 'Success');
+  var friendItem = new Item({
+    name: data.name,
+    location: data.location,
+    lat: data.lat,
+    lng: data.lng
+  });
+
+  friendItem.save(function(err) {
+    if(err) {
+      console.log('Got an error saving to database...');
+      callback(err, null);
+    } else {
+      console.log('Successfully saved to database....');
+      callback(null, 'Successfully saved to database....');
+    }
+  });
+
 };
 
 module.exports.addFriend = addFriend;
