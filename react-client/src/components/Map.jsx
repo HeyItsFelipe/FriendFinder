@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 class Map extends Component {
    render() {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
-        defaultCenter = { { lat: 37.759773, lng: -122.427063 } }
-        defaultZoom = { 10 }
+        defaultCenter = { { lat: 37.697948, lng: -97.314835 } }
+        defaultZoom = { 4 }
       >
       </GoogleMap>
    ));

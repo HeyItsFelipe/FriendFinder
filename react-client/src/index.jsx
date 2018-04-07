@@ -46,7 +46,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
+    //UPON LOAD, ROUTE TO /friends
     $.ajax({
       url: '/friends',
       method: 'GET',
