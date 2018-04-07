@@ -30,6 +30,15 @@ var selectAll = function(callback) {
   });
 };
 
+var getFriends = function() {
+  console.log('Entered getFriends...');
+  return Item.find(function(err, friends) {
+    if(err) {
+      console.log('getFriends Error!!!');
+    }
+  });
+};
+
 var addFriend = function(data, callback) {
   console.log('Entered addFriend....');
   console.log(data);
@@ -49,8 +58,8 @@ var addFriend = function(data, callback) {
       callback(null, 'Successfully saved to database....');
     }
   });
-
 };
 
+module.exports.getFriends = getFriends;
 module.exports.addFriend = addFriend;
 module.exports.selectAll = selectAll;

@@ -13,11 +13,15 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 // app.use(express.static(__dirname + '/../angular-client'));
 // app.use(express.static(__dirname + '/../node_modules'));
 
-app.get('/items', function (req, res) {
+app.get('/friends', function (req, res) {
 
   console.log('Entered GET in server....');
   console.log(req.body);
-
+  //NEED TO REVIEW EXPRESS PROMISES AND PROMISES IN GENERAL
+  items.getFriends().then(function(data) {
+    console.log(data);
+    res.end(JSON.stringify(data));
+  });
   // items.selectAll(function(err, data) {
   //   if(err) {
   //     res.sendStatus(500);
