@@ -30,4 +30,15 @@ var selectAll = function(callback) {
   });
 };
 
+var addFriend = function(data, callback) {
+  console.log('Entered addFriend....');
+  console.log(data);
+  //TODO: Add to database
+  //TODO: Start db using mongod
+  //TODO: Start db cli using mongo
+  //TODO: Add using save, Item.save
+  callback(null, 'Success');
+};
+
+module.exports.addFriend = addFriend;
 module.exports.selectAll = selectAll;

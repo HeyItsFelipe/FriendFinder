@@ -25,7 +25,7 @@ class App extends React.Component {
         var lng = results[0].geometry.location.lng();
 
         $.ajax({
-          url: '/friends',
+          url: '/friend',
           method: 'POST',
           contentType: "application/JSON",
           data: JSON.stringify({name: name, location: location, lat: lat, lng: lng}),

@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
-//var items = require('../database-mongo');
+var items = require('../database-mongo');
 
 var app = express();
 app.use(bodyParser.json());
@@ -27,9 +27,16 @@ app.get('/items', function (req, res) {
   // });
 });
 
-app.post('/friends', function(req, res) {
+app.post('/friend', function(req, res) {
   console.log('Entered POST in server....');
   console.log(req.body);
+  items.addFriend(req.body, function(err, data) {
+    if(err) {
+      console.log('Error in addFriend...');
+    } else {
+      console.log('Success in addFriend...');
+    }
+  });
 
 });
 
