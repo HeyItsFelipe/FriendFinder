@@ -13,6 +13,10 @@ class Map extends Component {
 
       </GoogleMap>
    ));
+   console.log('Entered here...');
+   console.log(this.props.friends);
+   console.log(Array.isArray(this.props.friends));
+   console.log(this.props.friends);
    return(
       <div>
         <GoogleMapExample

@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      friends: []
     }
   }
 
@@ -52,7 +53,10 @@ class App extends React.Component {
       method: 'GET',
       contentType: "application/JSON",
       success: (data) => {
-        console.log(data);
+        var parsedData = JSON.parse(data);
+        this.setState({
+          friends: parsedData
+        });
         // this.setState({
         //   items: data
         // })
@@ -66,11 +70,10 @@ class App extends React.Component {
   render () {
     return (<div>
       <Panel handleClick={this.handleClick.bind(this)}/>
-      <Map />
+      <Map friends={this.state.friends}/>
     </div>)
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-//AIzaSyBGC4u9mqouuWu2JyVz60Kk2iiuptGJy0g
