@@ -16,11 +16,11 @@ class Panel extends React.Component {
 
   handleLocationChange(e) {
     console.log('Location input: ' + e.target.value);
-    this.setState({name: e.target.value});
+    this.setState({location: e.target.value});
   }
 
   handleClick(e) {
-    this.props.handleClick();
+    this.props.handleClick(this.state.name, this.state.location);
   }
 
   render() {

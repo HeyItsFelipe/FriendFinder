@@ -14,8 +14,10 @@ class App extends React.Component {
 
   // this.handleClick = this.handleClick.bind(this);
 
-  handleClick() {
+  handleClick(name, location) {
     console.log('I have been clicked!');
+    console.log('Name: ' + name);
+    console.log('Location: ' + location);
   }
 
   componentDidMount() {
