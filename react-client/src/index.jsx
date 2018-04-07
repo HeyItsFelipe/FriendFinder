@@ -14,9 +14,9 @@ class App extends React.Component {
 
   // this.handleClick = this.handleClick.bind(this);
 
-  // handleClick() {
-  //   console.log('I have been clicked!');
-  // }
+  handleClick() {
+    console.log('I have been clicked!');
+  }
 
   componentDidMount() {
     $.ajax({
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <Panel name="Jo" />
+      <Panel name="Jo" handleClick={this.handleClick.bind(this)}/>
       <Map />
     </div>)
   }

@@ -19,6 +19,10 @@ class Panel extends React.Component {
     this.setState({name: e.target.value});
   }
 
+  handleClick(e) {
+    this.props.handleClick();
+  }
+
   render() {
     return (
       <div>
@@ -26,7 +30,7 @@ class Panel extends React.Component {
         <div>
           <input type="text" placeholder="Name" onChange={this.handleNameChange.bind(this)} />
           <input type="text" placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
-          <button>Submit</button>
+          <button onClick={this.handleClick.bind(this)}>Submit</button>
         </div>
       </div>)
   }
