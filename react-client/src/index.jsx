@@ -21,6 +21,23 @@ class App extends React.Component {
     geocoder.geocode( { 'address': location}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         console.log("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+        var lat = results[0].geometry.location.lat();
+        var lng = results[0].geometry.location.lng();
+
+        $.ajax({
+          url: '/friends',
+          method: 'POST',
+          contentType: "application/JSON",
+          data: JSON.stringify({name: name, location: location, lat: lat, lng: lng}),
+          success: (data) => {
+            console.log('POST request from handleClick success!!!');
+          },
+          error: (err) => {
+            console.log('err', err);
+          }
+        });
+
+
       } else {
         console.log("Something got wrong " + status);
       }

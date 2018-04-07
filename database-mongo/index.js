@@ -12,8 +12,10 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  name: Number,
+  location: String,
+  lat: Number,
+  lng: Number
 });
 
 var Item = mongoose.model('Item', itemSchema);
