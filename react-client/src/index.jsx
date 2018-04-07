@@ -1,19 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import Map from './components/Map.jsx';
+import Panel from './components/Panel.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       items: []
     }
   }
 
+  // this.handleClick = this.handleClick.bind(this);
+
+  // handleClick() {
+  //   console.log('I have been clicked!');
+  // }
+
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      url: '/items',
       success: (data) => {
         this.setState({
           items: data
@@ -27,10 +34,12 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <Panel />
+      <Map />
     </div>)
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+//AIzaSyBGC4u9mqouuWu2JyVz60Kk2iiuptGJy0g
